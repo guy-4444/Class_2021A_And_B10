@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
 import android.animation.Animator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -16,7 +17,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class Activity_Splash extends AppCompatActivity {
 
-    private final int ANIMATION_DURATION = 5000;
+    private final int ANIMATION_DURATION = 2000;
     private ImageView splash_IMG_logo;
     private MaterialButton splash_BTN_start;
 
@@ -69,6 +70,14 @@ public class Activity_Splash extends AppCompatActivity {
 
     private void initViews() {
         splash_BTN_start.setVisibility(View.INVISIBLE);
+
+        splash_BTN_start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(Activity_Splash.this, MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     private void findViews() {
